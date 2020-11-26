@@ -59,12 +59,10 @@ const Form = ({ formId, petForm, forNewPet = true }) => {
         },
         body: JSON.stringify(form),
       })
-
       // Throw error with status code in case Fetch API req failed
       if (!res.ok) {
         throw new Error(res.status)
       }
-
       router.push('/')
     } catch (error) {
       setMessage('Failed to add pet')
