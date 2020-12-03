@@ -31,7 +31,11 @@ const FoodSchema = new mongoose.Schema({
   price: {
     /*Price food */
     type: Number,
-  }
+  },
+  typeFood: {
+    /*Price food */
+    type: String,
+  },
 })
 
 export default mongoose.models.Food || mongoose.model('Food', FoodSchema)

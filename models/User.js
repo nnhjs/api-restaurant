@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
   image_url: {
     /* Url to user image */
 
-    required: [true, 'Please provide an image url for this user.'],
+    // required: [true, 'Please provide an image url for this user.'],
     type: String,
   },
   userToken: {
