@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       try {
         const deals = await Deal.find({
           id_account,
-        }); /* find all the data in our database */
+        }).sort({ created: -1 }); /* find all the data in our database */
         res.status(200).json({ success: true, data: deals });
       } catch (error) {
         res.status(400).json({ success: false });

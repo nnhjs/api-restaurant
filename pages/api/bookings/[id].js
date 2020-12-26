@@ -1,4 +1,4 @@
-import Deal from "../../../models/Deal";
+import Booking from "../../../models/Booking";
 import dbConnect from "../../../utils/dbConnect";
 
 export default async function handler(req, res) {
@@ -12,11 +12,11 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET" /* Get a model by its ID */:
       try {
-        const deal = await Deal.findById(id);
-        if (!deal) {
+        const booking = await Booking.findById(id);
+        if (!booking) {
           return res.status(400).json({ success: false });
         }
-        res.status(200).json({ success: true, data: deal });
+        res.status(200).json({ success: true, data: booking });
       } catch (error) {
         res.status(400).json({ success: false });
       }
@@ -24,14 +24,14 @@ export default async function handler(req, res) {
 
     case "PUT" /* Edit a model by its ID */:
       try {
-        const deal = await Deal.findByIdAndUpdate(id, req.body, {
+        const booking = await Booking.findByIdAndUpdate(id, req.body, {
           new: true,
           runValidators: true,
         });
-        if (!deal) {
+        if (!booking) {
           return res.status(400).json({ success: false });
         }
-        res.status(200).json({ success: true, data: deal });
+        res.status(200).json({ success: true, data: booking });
       } catch (error) {
         res.status(400).json({ success: false });
       }
@@ -39,8 +39,8 @@ export default async function handler(req, res) {
 
     case "DELETE" /* Delete a model by its ID */:
       try {
-        const deletedDeal = await Deal.deleteOne({ _id: id });
-        if (!deletedDeal) {
+        const deletedBooking = await Booking.deleteOne({ _id: id });
+        if (!deletedBooking) {
           return res.status(400).json({ success: false });
         }
         res.status(200).json({ success: true, data: {} });

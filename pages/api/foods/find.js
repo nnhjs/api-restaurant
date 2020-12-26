@@ -3,7 +3,7 @@ import dbConnect from "../../../utils/dbConnect";
 
 export default async function handler(req, res) {
   const {
-    query: { typeFood, id_restaurant, keyword },
+    query: { keyword },
     method,
   } = req;
   await dbConnect();
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     case "GET":
       try {
         const foods = await Food.find({
-          $or: [{ typeFood }, { id_restaurant }],
+          $or: [{ name: new RegExp(keyword) }],
         }); /* find all the data in our database */
         res.status(200).json({ success: true, data: foods });
       } catch (error) {
