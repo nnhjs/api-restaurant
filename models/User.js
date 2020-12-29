@@ -40,12 +40,12 @@ const UserSchema = new mongoose.Schema({
     
     type: String,
   },
-  email: {
+  gmail: {
     /* Email */
     
     type: String,
   },
-  city: {
+  address: {
     /* City */
     
     type: String,
